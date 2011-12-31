@@ -1,0 +1,2 @@
+proc            <%= @target_path %>/proc         proc    nodev,noexec,nosuid 0 0
+sysfs           <%= @target_path %>/sys          sysfs   defaults            0 0

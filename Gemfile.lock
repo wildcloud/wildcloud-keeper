@@ -1,0 +1,22 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    amq-client (0.8.7)
+      amq-protocol (>= 0.8.4)
+      eventmachine
+    amq-protocol (0.8.4)
+    amqp (0.8.4)
+      amq-client (~> 0.8.7)
+      amq-protocol (~> 0.8.4)
+      eventmachine
+    eventmachine (0.12.10)
+    json (1.6.4)
+    wildcloud-logger (0.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  amqp
+  json
+  wildcloud-logger
