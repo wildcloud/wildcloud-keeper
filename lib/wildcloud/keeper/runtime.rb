@@ -60,12 +60,6 @@ module Wildcloud
         handler = self.method(:handle)
         @transport.start(&handler)
         @transport.send({:type => :sshkey, :node => Keeper.configuration['node']['name'], :key => File.read(File.expand_path('~/.ssh/id_rsa.pub')).strip}, :master)
-        heartbeat
-      end
-
-      def heartbeat
-        @transport.send({:type => 'heartbeat', :node => Keeper.configuration['node']['name']}, :master)
-        EM.add_timer(5, method(:heartbeat))
       end
 
       def handle(message)
