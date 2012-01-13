@@ -38,7 +38,7 @@ module Wildcloud
         @queue = Queue.new
         @thread_pool = []
 
-        Keeper.configuration['node']['workers'].times do |i|
+        Keeper.configuration['workers'].times do |i|
           Keeper.logger.debug('Runtime', "Starting thread ##{i}")
           Thread.new(i) do |id|
             Thread.current.abort_on_exception = false

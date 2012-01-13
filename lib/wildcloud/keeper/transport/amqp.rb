@@ -32,14 +32,14 @@ module Wildcloud
           Keeper.add_amqp_logger(@connection)
 
           @channel = AMQP::Channel.new(@connection)
-          @channel.prefetch(Keeper.configuration['node']['workers'])
+          @channel.prefetch(Keeper.configuration['workers'])
 
           @exchange = @channel.topic('wildcloud.keeper')
           @queue = @channel.queue("wildcloud.keeper.node.#{Keeper.configuration['node']['name']}")
           @queue.bind(@exchange, :routing_key => 'nodes')
           @queue.bind(@exchange, :routing_key => "node.#{Keeper.configuration['node']['name']}")
 
-          if Keeper.configuration['node']['builder']
+          if Keeper.configuration['builder']
             @builders = @channel.queue("wildcloud.keeper.build")
             @builders.bind(@exchange, :routing_key => 'build')
           end

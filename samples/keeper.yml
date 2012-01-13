@@ -1,0 +1,13 @@
+workers: 10
+builder: true
+
+storage:
+  url: http://your.cool.storage
+  id: your.storage.key
+
+paths:
+  tmp: /tmp
+  images: /var/images
+  mounts: /var/mounts
+  temp: /tmp/images
+  config: /etc/wildcloud/applications

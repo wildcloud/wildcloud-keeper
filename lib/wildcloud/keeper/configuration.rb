@@ -13,6 +13,9 @@
 # limitations under the License.
 
 require 'yaml'
+
+require 'wildcloud/configuration'
+
 require 'wildcloud/keeper/logger'
 
 module Wildcloud
@@ -20,12 +23,11 @@ module Wildcloud
 
     def self.configuration
       return @configuration if @configuration
-      file = '/etc/wildcloud/keeper.yml'
-      unless File.exists?(file)
-        file = './keeper.yml'
+      config = Wildcloud::Configuration.load('keeper')
+      config.sources.each do |source|
+        self.logger.info('Configuration', "Loaded configuration from #{source}")
       end
-      Keeper.logger.info('Configuration', "Loading from file #{file}")
-      @configuration = YAML.load_file(file)
+      @configuration = config.configuration
     end
 
   end

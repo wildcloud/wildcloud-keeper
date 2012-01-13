@@ -18,7 +18,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'amqp', '0.8.4'
   s.add_dependency 'json', '1.6.4'
-  s.add_dependency 'wildcloud-logger', '0.0.1'
+  s.add_dependency 'wildcloud-logger', '0.0.2'
+  s.add_dependency 'wildcloud-configuration', '0.0.1'
 
   s.files        = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md CHANGELOG.md)
   s.executables = %w(wildcloud-keeper)
